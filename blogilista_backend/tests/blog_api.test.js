@@ -10,10 +10,9 @@ describe('when there is initially some blogs saved', () => {
   beforeEach(async () => {
     await Blog.remove({})
 
-    for (let blog of helper.initialBlogs) {
-      let blogObject = new Blog(blog)
-      await blogObject.save()
-    }
+    const blogObjects = helper.initialBlogs.map(blog => new Blog(blog))
+    const promiseArray = blogObjects.map(blog => blog.save())
+    await Promise.all(promiseArray)
   })
 
   test('notes are returned as json', async () => {
@@ -120,8 +119,7 @@ describe('when there is initially some blogs saved', () => {
   describe('updating of blogs', () => {
     test('a blog can be updated', async () => {
       const blog = {
-        title:
-          'updatedTitle - this gets through even thought Im getting 500 "internal server error"'
+        title: 'Lets try again!'
       }
 
       const blogsAtStart = await helper.blogsInDb()
