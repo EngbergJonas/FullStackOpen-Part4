@@ -4,10 +4,10 @@
   "description": "Blogilista backend",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "watch": "nodemon index.js",
-    "lint": "eslint .",
-    "test": "jest --verbose"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "watch": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
+    "lint": "eslint ."
   },
   "author": "Jonas Engberg",
   "license": "ISC",
@@ -15,13 +15,16 @@
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
-    "mongoose": "^5.5.3"
+    "mongoose": "^5.5.3",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
     "jest": "^24.8.0",
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.18.11",
+    "supertest": "^4.0.2"
   },
   "jest": {
     "testEnvironment": "node"
