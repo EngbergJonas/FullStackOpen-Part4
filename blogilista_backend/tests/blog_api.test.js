@@ -119,12 +119,11 @@ describe('when there is initially some blogs saved', () => {
   describe('updating of blogs', () => {
     test('a blog can be updated', async () => {
       const blog = {
-        title: 'Lets try again!'
+        likes: 36
       }
 
       const blogsAtStart = await helper.blogsInDb()
       const blogToUpdate = blogsAtStart[0]
-      console.log('Blog to update: ', blogToUpdate)
 
       await api
         .put(`/api/blogs/${blogToUpdate.id}`)
@@ -134,7 +133,7 @@ describe('when there is initially some blogs saved', () => {
       const blogsAtEnd = await helper.blogsInDb()
       const blogAfterUpdate = blogsAtEnd[0]
 
-      expect(blogAfterUpdate.title).toBe(blog.title)
+      expect(blogAfterUpdate.likes).toEqual(blog.likes)
     })
   })
 })

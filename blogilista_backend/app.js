@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const blogsrouter = require('./controllers/blogs')
+const usersRouter = require('./controllers/users')
 const middleware = require('./utils/middleware')
 const mongoose = require('mongoose')
 const logger = require('./utils/logger')
@@ -23,6 +24,7 @@ if (process.env.NODE_ENV !== 'test') {
   app.use(middleware.requestLogger)
 }
 app.use('/api/blogs', blogsrouter)
+app.use('/api/users', usersRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
