@@ -11,6 +11,23 @@ const requestLogger = morgan(
   ':method :url :res[content-length] - :response-time ms :data'
 )
 
+/*
+const getTokenFrom = req => {
+  const authorization = req.get('authorization')
+  if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
+    return authorization.substring(7)
+  }
+  return null
+} 
+
+const tokenExtractor = req => {
+  const authorization = req.get('authorization')
+  if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
+    return authorization.substring(7)
+  }
+  return null
+}
+*/
 const unknownEndpoint = (req, res) => {
   res.status(404).send({ error: 'unknown endpoint' })
 }
@@ -31,4 +48,5 @@ module.exports = {
   requestLogger,
   unknownEndpoint,
   errorHandler
+  //tokenExtractor
 }

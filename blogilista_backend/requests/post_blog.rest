@@ -1,10 +1,11 @@
 POST http://localhost:3003/api/blogs
 content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZ2JlcmdqIiwiaWQiOiI1ZDQ5MmM4OTc4ZmZkYzE0ZTUyODI3M2UiLCJpYXQiOjE1NjU3MDI3MTF9._RuJorm_qw7xtUTOsqidbzcwAEX0Scj1PJ74EEX5IIE
 
 {
-    "title": "User y added this blog",
-    "author": "Jone",
-    "url": "google.com",
-    "likes": 137,
+    "title": "I post this because I have a verified token",
+    "author": "J. Berg",
+    "url": "https://www.twitch.tv",
+    "likes": 99,
     "userId": "5d492c8978ffdc14e528273e"
 }
