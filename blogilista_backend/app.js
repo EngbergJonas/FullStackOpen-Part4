@@ -24,9 +24,7 @@ app.use(bodyParser.json())
 if (process.env.NODE_ENV !== 'test') {
   app.use(middleware.requestLogger)
 }
-
-//app.use(middleware.tokenExtractor)
-
+app.use(middleware.tokenExtractor)
 app.use('/api/login', loginRouter)
 app.use('/api/blogs', blogsrouter)
 app.use('/api/users', usersRouter)

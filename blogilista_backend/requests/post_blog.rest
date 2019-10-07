@@ -3,9 +3,9 @@ content-type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZ2JlcmdqIiwiaWQiOiI1ZDQ5MmM4OTc4ZmZkYzE0ZTUyODI3M2UiLCJpYXQiOjE1NjU3MDI3MTF9._RuJorm_qw7xtUTOsqidbzcwAEX0Scj1PJ74EEX5IIE
 
 {
-    "title": "I post this because I have a verified token",
+    "title": "This blog celebrates middleware success",
     "author": "J. Berg",
     "url": "https://www.twitch.tv",
-    "likes": 99,
+    "likes": -23,
     "userId": "5d492c8978ffdc14e528273e"
 }
