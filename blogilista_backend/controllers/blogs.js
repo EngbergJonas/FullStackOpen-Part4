@@ -57,8 +57,16 @@ blogsRouter.get('/:id', async (req, res, next) => {
 
 blogsRouter.delete('/:id', async (req, res, next) => {
   try {
-    await Blog.findByIdAndRemove(req.params.id)
-    res.status(204).end()
+    const blog = await Blog.findById(req.params.id)
+    //5d492c8978ffdc14e528273e <- correct id for testing
+    const userid = '5d492c8978ffdc14e528273e'
+
+    if (blog.user.toString() === userid.toString()) {
+      await Blog.findByIdAndRemove(req.params.id)
+      res.status(204).end()
+    } else {
+      return res.status(404).json({ error: 'Wrong user id trying to delete' })
+    }
   } catch (exception) {
     next(exception)
   }
